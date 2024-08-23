@@ -16,7 +16,7 @@ lint = true
 [default.deploy.parameters]
 capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
-s3_bucket: 'aws-sam-cli-managed-dev-pipeline-r-artifactsbucket-evivns4ysyjz'
+s3_bucket= "aws-sam-cli-managed-dev-pipeline-r-artifactsbucket-evivns4ysyjz"
 
 
 [default.package.parameters]
