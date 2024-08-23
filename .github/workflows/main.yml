@@ -1,0 +1,30 @@
+name: Example pipeline
+on:
+ push:
+   branches: [main]
+
+permissions:
+ id-token: write
+ contents: read
+ 
+jobs:
+ pull_request:
+   runs-on: ubuntu-latest
+
+   env:
+     AWS_DEFAULT_REGION: us-gov-east-1
+
+   steps:
+   - name: configureawscredentials
+     uses: aws-actions/configure-aws-credentials@v1
+     with:
+       role-to-assume: arn:aws-us-gov:iam::146825952482:role/githubpipelinepriyatestrole
+       role-session-name: samplerolesession
+       aws-region: ${{env.AWS_DEFAULT_REGION}}
+
+   - name: Checkout
+     uses: actions/checkout@v2
+
+   - name: Some AWS commands
+     run: aws s3 ls
+       
