@@ -30,3 +30,6 @@ jobs:
 
    - name: sam testing build
      run:  sam build --use-container
+
+   - name: deployingusingsam
+     run:  sam deploy --no-confirm-changeset --no-fail-on-empty-changeset 
